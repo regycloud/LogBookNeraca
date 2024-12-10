@@ -1,0 +1,60 @@
+.footer {
+    display: flex; /* Tata letak horizontal */
+    justify-content: space-between; /* Distribusi elemen */
+    align-items: center;
+    background-color: black;
+    color: yellow;
+    padding: 0; /* Hilangkan padding untuk kontrol penuh */
+    font-size: 1rem;
+    position: relative; /* Dibutuhkan untuk positioning */
+    overflow: hidden; /* Pastikan teks berjalan tidak terlihat */
+  }
+  
+  .timeContainer {
+    position: relative;
+    z-index: 3; /* Pastikan elemen ini berada di depan running text */
+    background-color: black; /* Warna latar belakang */
+    width: 20%; /* Lebar area jam */
+    padding: 0.5rem;
+    text-align: left; /* Ratakan teks ke kiri */
+  }
+  
+  .time {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: yellow;
+  }
+  
+  .runningTextContainer {
+    position: relative;
+    flex: 1; /* Isi ruang antara elemen waktu dan tanggal */
+    overflow: hidden; /* Sembunyikan teks berjalan di luar area ini */
+    z-index: 1; /* Pastikan teks berada di belakang elemen lainnya */
+  }
+  
+  .runningText {
+    position: absolute; /* Bebas bergerak dalam kontainer */
+    white-space: nowrap; /* Hindari teks membungkus */
+    animation: marquee 10s linear infinite; /* Animasi teks berjalan */
+    z-index: 1; /* Posisi layer lebih rendah dari elemen waktu dan tanggal */
+  }
+  
+  /* Keyframes untuk animasi running text */
+  @keyframes marquee {
+    0% {
+      transform: translateX(100%); /* Mulai dari luar layar kanan */
+    }
+    100% {
+      transform: translateX(-120%); /* Bergerak hingga keluar dari area di belakang jam */
+    }
+  }
+  
+  /* Kontainer tanggal */
+  .date {
+    position: relative;
+    z-index: 3; /* Pastikan elemen ini berada di depan running text */
+    background-color: black; /* Warna latar belakang */
+    padding: 0.5rem;
+    font-weight: bold;
+    text-align: right; /* Ratakan tanggal ke kanan */
+  }
